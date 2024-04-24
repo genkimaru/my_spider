@@ -2,8 +2,8 @@
 from typing import Iterable
 from urllib.request import Request
 import scrapy
-from pic_spider.items import PicItem
-from pic_spider.pipelines import CustomImagesPipeline
+from my_spider.items import PicItem
+from my_spider.pipelines import CustomImagesPipeline
 
 class PicSpider(scrapy.Spider):
     name = 'pic'
@@ -12,7 +12,7 @@ class PicSpider(scrapy.Spider):
     custom_settings = {
         'ROBOTSTXT_OBEY': False,
         'ITEM_PIPELINES': {
-            'pic_spider.pipelines.CustomImagesPipeline': 1,
+            'my_spider.pipelines.CustomImagesPipeline': 1,
         }
     }
 

@@ -9,3 +9,10 @@ import scrapy
 class PicItem(scrapy.Item):
     image_urls = scrapy.Field()
     images = scrapy.Field()
+
+
+class DBItem(scrapy.Item):
+    database_name = scrapy.Field()
+    current_rank  = scrapy.Field()
+    last_year_rank = scrapy.Field()
+    database_type = scrapy.Field()

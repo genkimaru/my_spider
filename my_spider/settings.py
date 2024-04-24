@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "pic_spider"
+BOT_NAME = "my_spider"
 
-SPIDER_MODULES = ["pic_spider.spiders"]
-NEWSPIDER_MODULE = "pic_spider.spiders"
+SPIDER_MODULES = ["my_spider.spiders"]
+NEWSPIDER_MODULE = "my_spider.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -62,9 +62,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "pic_spider.pipelines.CustomImagesPipeline": 1,
-}
+# ITEM_PIPELINES = {
+#    "pic_spider.pipelines.CustomImagesPipeline": 1,
+# }
 
 # ITEM_PIPELINES = {
 #     'scrapy.pipelines.images.ImagesPipeline': 1
@@ -106,3 +106,13 @@ DOWNLOADER_MIDDLEWARES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+MYSQL_SETTINGS = {
+    'host': 'localhost',
+    'database': 'bbc_news_db',
+    'user': 'guan',
+    'password': 'guan',
+}
+
+LOG_LEVEL = 'INFO'

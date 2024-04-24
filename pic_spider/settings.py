@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = "pic_spider.spiders"
 #USER_AGENT = "pic_spider (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -70,6 +70,16 @@ ITEM_PIPELINES = {
 #     'scrapy.pipelines.images.ImagesPipeline': 1
 # }
 IMAGES_STORE = '/home/guan/data/pic'
+
+
+# Selenium 
+SELENIUM_DRIVER_NAME = 'chrome'
+#SELENIUM_DRIVER_EXECUTABLE_PATH = '/home/guan/data/selenium'
+SELENIUM_DRIVER_ARGUMENTS = ['--headless']  # 可选，使用无头模式
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_selenium.SeleniumMiddleware': 800,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': None,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

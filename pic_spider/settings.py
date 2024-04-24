@@ -62,13 +62,13 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "pic_spider.pipelines.PicSpiderPipeline": 300,
-#}
-
 ITEM_PIPELINES = {
-    'scrapy.pipelines.images.ImagesPipeline': 1
+   "pic_spider.pipelines.CustomImagesPipeline": 1,
 }
+
+# ITEM_PIPELINES = {
+#     'scrapy.pipelines.images.ImagesPipeline': 1
+# }
 IMAGES_STORE = '/home/guan/data/pic'
 
 # Enable and configure the AutoThrottle extension (disabled by default)

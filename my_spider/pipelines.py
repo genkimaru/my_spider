@@ -5,16 +5,26 @@ from datetime import date
 import pymysql
 from scrapy.exceptions import DropItem
 from .settings import MYSQL_SETTINGS
+import pdb
 class CustomImagesPipeline(ImagesPipeline):
 
     index = 1
+    name = 'default'
     def file_path(self, request, response=None, info=None):
-        image_guid = request.url.split('/')[-1]  # 获取图片的文件名
-        filename = 'pic'+str(CustomImagesPipeline.index)
-        CustomImagesPipeline.index += 1
-        path = date.today().strftime('%Y-%m-%d') +'/%s' % (filename)
+        # image_guid = request.url.split('/')[-1]  # 获取图片的文件名
+        filename = self.name +'-'+str(self.index)
+        self.index += 1
+        # pdb.set_trace()
+        path = date.today().strftime('%Y-%m-%d') +'/%s/%s'  % (self.name , filename)
         print(path)
         return path
+    
+
+    def process_item(self, item, spider):
+        # print(item['image_name'])
+        self.name = item['image_name'][0]
+        # pdb.set_trace()
+        return super().process_item(item, spider)
 
 
 class DBRankPipeline:

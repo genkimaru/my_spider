@@ -8,6 +8,8 @@ import scrapy
 
 class PicItem(scrapy.Item):
     image_urls = scrapy.Field()
+    image_alt = scrapy.Field()
+    image_name = scrapy.Field()
     images = scrapy.Field()
 
 
